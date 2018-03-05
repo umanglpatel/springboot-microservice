@@ -2,6 +2,7 @@ package com.demo.product.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,19 +21,19 @@ public class ProductController {
 		return "hello world!";
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
 		product = productService.addProduct(product);
 		return new ResponseEntity<Product>(product, HttpStatus.CREATED);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Product> getProductById(@PathVariable("id") int id) {
 		Product product = productService.getProductById(id);
 		return new ResponseEntity<Product>(product, HttpStatus.FOUND);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
+	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Product> updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
 		product.setId(id);
 		product = productService.updateProduct(product);
