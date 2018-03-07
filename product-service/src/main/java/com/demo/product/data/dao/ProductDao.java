@@ -3,7 +3,7 @@ package com.demo.product.data.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.demo.product.data.vo.Product;
+import com.demo.domain.data.Product;
 
 @Repository
 public class ProductDao {

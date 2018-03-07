@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.demo.order.data.vo.Order;
+import com.demo.domain.data.Order;
 import com.demo.order.service.OrderService;
 
 @RestController

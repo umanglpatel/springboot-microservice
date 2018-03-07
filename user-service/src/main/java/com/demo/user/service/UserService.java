@@ -3,8 +3,8 @@ package com.demo.user.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.demo.domain.data.User;
 import com.demo.user.data.dao.UserDao;
-import com.demo.user.data.vo.User;
 import com.demo.user.exception.UserNotFoundException;
 
 @Service

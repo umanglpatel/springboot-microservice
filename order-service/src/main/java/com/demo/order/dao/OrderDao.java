@@ -3,7 +3,7 @@ package com.demo.order.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.demo.order.data.vo.Order;
+import com.demo.domain.data.Order;
 
 @Repository
 public class OrderDao {

@@ -3,8 +3,8 @@ package com.demo.product.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.demo.domain.data.Product;
 import com.demo.product.data.dao.ProductDao;
-import com.demo.product.data.vo.Product;
 import com.demo.product.exception.ProductNotFoundException;
 
 @Service

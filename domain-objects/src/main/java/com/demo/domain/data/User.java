@@ -1,4 +1,4 @@
-package com.demo.user.data.vo;
+package com.demo.domain.data;
 
 import static javax.persistence.GenerationType.IDENTITY;
 

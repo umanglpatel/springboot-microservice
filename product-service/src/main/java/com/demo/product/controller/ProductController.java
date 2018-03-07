@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.demo.product.data.vo.Product;
+import com.demo.domain.data.Product;
 import com.demo.product.service.ProductService;
 
 @RestController
