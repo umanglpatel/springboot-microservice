@@ -1,5 +1,8 @@
 package com.demo.order.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,5 +23,12 @@ public class OrderController {
 	public ResponseEntity<Order> addOrder(@RequestBody Order order) {
 		order = orderService.addOrder(order);
 		return new ResponseEntity<>(order, HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "/test", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> test() throws UnknownHostException {
+		InetAddress ip = InetAddress.getLocalHost();
+		String result = "Request served from : " + ip.getHostAddress() + " and host : " + ip.getHostName();
+		return new ResponseEntity<String>(result, HttpStatus.OK);
 	}
 }

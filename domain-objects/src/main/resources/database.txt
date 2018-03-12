@@ -1,0 +1,10 @@
+CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'appuser';
+
+GRANT ALL PRIVILEGES ON *.* TO 'appuser'@'localhost'
+ WITH GRANT OPTION;
+
+
+CREATE USER 'appuser'@'%' IDENTIFIED BY 'appuser';
+
+GRANT ALL PRIVILEGES ON *.* TO 'appuser'@'%'
+ WITH GRANT OPTION;
