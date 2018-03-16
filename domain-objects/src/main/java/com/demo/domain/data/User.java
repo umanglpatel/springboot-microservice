@@ -12,6 +12,8 @@ public class User implements java.io.Serializable {
 	private Integer id;
 	private String firstName;
 	private String lastName;
+	private String userName;
+	private String password;
 	private String phoneNo;
 
 	public User() {
@@ -22,9 +24,11 @@ public class User implements java.io.Serializable {
 		this.phoneNo = phoneNo;
 	}
 
-	public User(String firstName, String lastName, String phoneNo) {
+	public User(String firstName, String lastName, String userName, String password, String phoneNo) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
 		this.phoneNo = phoneNo;
 	}
 
@@ -56,6 +60,24 @@ public class User implements java.io.Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	@Column(name = "user_name", length = 45)
+	public String getUserName() {
+		return this.userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	@Column(name = "password")
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Column(name = "phone_no", nullable = false, length = 15)
