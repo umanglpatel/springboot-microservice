@@ -4,6 +4,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 @Table(name = "users")
 public class User implements java.io.Serializable {
@@ -13,6 +16,7 @@ public class User implements java.io.Serializable {
 	private String firstName;
 	private String lastName;
 	private String userName;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 	private String phoneNo;
 
