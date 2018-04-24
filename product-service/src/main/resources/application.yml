@@ -15,3 +15,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+
+# use below for setting different profile in single application.yml file 
+#---
+#spring: 
+#  profiles: product-test
+  

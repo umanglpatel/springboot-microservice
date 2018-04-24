@@ -46,8 +46,8 @@ oauth:
 # https://stackoverflow.com/questions/42822875/springboot-1-5-x-security-oauth2
 # check more on filter orders
 
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.springframework.cloud: DEBUG
-    org.springframework.web: DEBUG
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
+#    org.springframework.cloud: DEBUG
+#    org.springframework.web: DEBUG
