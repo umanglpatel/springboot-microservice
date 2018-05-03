@@ -37,10 +37,10 @@ public class OrderController {
 	public ResponseEntity<String> test() throws UnknownHostException {
 		InetAddress ip = InetAddress.getLocalHost();
 		String result = "Request served from : " + ip.getHostAddress() + " and host : " + ip.getHostName();
-		logger.debug("Logback : This is a debug message");
-		logger.info("Logback : This is an info message");
-		logger.warn("Logback : This is a warn message");
-		logger.error("Logback : This is an error message");
+		logger.debug("order-service : Logback : This is a debug message");
+		logger.info("order-service : Logback : This is an info message");
+		logger.warn("order-service : Logback : This is a warn message");
+		logger.error("order-service : Logback : This is an error message");
 		return new ResponseEntity<String>(result, HttpStatus.OK);
 	}
 }

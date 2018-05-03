@@ -19,3 +19,6 @@ eureka:
 service:
   product:
     serviceId: products
+
+logging:
+  file: C:\Umang\sws\microservices\logs\order-service.log
