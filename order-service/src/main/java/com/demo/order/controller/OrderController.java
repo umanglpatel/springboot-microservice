@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import com.demo.domain.data.Order;
 import com.demo.order.service.OrderService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/v1.0/orders")
 public class OrderController {

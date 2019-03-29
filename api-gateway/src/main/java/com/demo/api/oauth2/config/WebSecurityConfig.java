@@ -11,8 +11,10 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.AuthenticationException;
@@ -38,6 +40,44 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
 	}
 
+	// @Bean
+	// public CorsFilter corsFilter() {
+	// final UrlBasedCorsConfigurationSource source = new
+	// UrlBasedCorsConfigurationSource();
+	// final CorsConfiguration config = new CorsConfiguration();
+	// config.setAllowCredentials(true);
+	// config.addAllowedOrigin("*");
+	// config.addAllowedHeader("*");
+	// config.addAllowedMethod("OPTIONS");
+	// config.addAllowedMethod("HEAD");
+	// config.addAllowedMethod("GET");
+	// config.addAllowedMethod("PUT");
+	// config.addAllowedMethod("POST");
+	// config.addAllowedMethod("DELETE");
+	// config.addAllowedMethod("PATCH");
+	// source.registerCorsConfiguration("/**", config);
+	// System.out.println("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+	// CorsFilter corsFilter = new CorsFilter(source);
+	// corsFilter.setBeanName("corsFilter");
+	// return corsFilter;
+	// }
+
+	// @Bean
+	// public FilterRegistrationBean corsFilter() {
+	// UrlBasedCorsConfigurationSource source = new
+	// UrlBasedCorsConfigurationSource();
+	// CorsConfiguration config = new CorsConfiguration();
+	// config.setAllowCredentials(true);
+	// config.addAllowedOrigin("*");
+	// config.addAllowedHeader("*");
+	// config.addAllowedMethod("*");
+	// source.registerCorsConfiguration("/**", config);
+	// FilterRegistrationBean bean = new FilterRegistrationBean(new
+	// CorsFilter(source));
+	// bean.setOrder(0);
+	// return bean;
+	// }
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO : users/ should be accessible without security. Not working right now
@@ -57,10 +97,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		};
 	}
 
-	// @Override
-	// public void configure(WebSecurity web) throws Exception {
-	// web.ignoring().antMatchers("/users/**");
-	// }
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers(HttpMethod.OPTIONS);
+	}
 
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
