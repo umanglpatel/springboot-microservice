@@ -1,5 +1,7 @@
 package com.demo.user.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -29,7 +31,13 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUser(@PathVariable("id") int id) {
 		User user = userService.getUserById(id);
-		return new ResponseEntity<User>(user, HttpStatus.FOUND);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<User>> getAllUsers() {
+		List<User> users = userService.getAllUsers();
+		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

@@ -1,5 +1,7 @@
 package com.demo.user.data.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +23,10 @@ public class UserDao {
 
 	public User updateUser(User user) {
 		return userRepo.save(user);
+	}
+
+	public List<User> getAllUsers() {
+		return userRepo.findAll();
 	}
 
 }
