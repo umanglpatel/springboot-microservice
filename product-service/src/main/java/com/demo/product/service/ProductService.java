@@ -1,5 +1,7 @@
 package com.demo.product.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,10 @@ public class ProductService {
 		if (existingProduct == null)
 			throw new ProductNotFoundException(product.getId());
 		return productDao.updateProduct(product);
+	}
+
+	public List<Product> getAllProducts(int id) {
+		return productDao.getAllProducts();
 	}
 
 }

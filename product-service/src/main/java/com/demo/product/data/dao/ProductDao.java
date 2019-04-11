@@ -1,5 +1,7 @@
 package com.demo.product.data.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +23,10 @@ public class ProductDao {
 
 	public Product updateProduct(Product product) {
 		return productRepo.save(product);
+	}
+
+	public List<Product> getAllProducts() {
+		return productRepo.findAll();
 	}
 
 }

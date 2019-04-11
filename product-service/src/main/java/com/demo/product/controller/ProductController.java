@@ -1,5 +1,7 @@
 package com.demo.product.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -39,4 +41,11 @@ public class ProductController {
 		product = productService.updateProduct(product);
 		return new ResponseEntity<Product>(product, HttpStatus.CREATED);
 	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Product>> getAllProducts(@PathVariable("id") int id) {
+		List<Product> products = productService.getAllProducts(id);
+		return new ResponseEntity<List<Product>>(products, HttpStatus.FOUND);
+	}
+
 }
