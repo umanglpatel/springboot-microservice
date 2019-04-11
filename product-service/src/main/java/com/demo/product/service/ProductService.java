@@ -33,7 +33,7 @@ public class ProductService {
 		return productDao.updateProduct(product);
 	}
 
-	public List<Product> getAllProducts(int id) {
+	public List<Product> getAllProducts() {
 		return productDao.getAllProducts();
 	}
 

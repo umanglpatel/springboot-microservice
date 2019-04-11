@@ -43,9 +43,9 @@ public class ProductController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Product>> getAllProducts(@PathVariable("id") int id) {
-		List<Product> products = productService.getAllProducts(id);
-		return new ResponseEntity<List<Product>>(products, HttpStatus.FOUND);
+	public ResponseEntity<List<Product>> getAllProducts() {
+		List<Product> products = productService.getAllProducts();
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 
 }
